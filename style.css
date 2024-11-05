@@ -252,3 +252,14 @@
         border-radius: 10px;
         margin-bottom: 20px;
       }
+
+/* Ajustes para diferentes dispositivos */
+@media (max-width: 768px) {
+  body, html {
+    overflow-y: auto; /* Permite scroll vertical en móvil */
+  }
+
+  .animated-name {
+    font-size: 2.5rem; /* Tamaño reducido en móvil */
+  }
+
