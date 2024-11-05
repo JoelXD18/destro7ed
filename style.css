@@ -263,3 +263,29 @@
     font-size: 2.5rem; /* Tamaño reducido en móvil */
   }
 
+    .social {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.social-icon {
+  color: #e0e0e0;
+  font-size: 2rem; /* Tamaño del icono */
+  padding: 10px;
+  border-radius: 50%;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icon:hover {
+  color: #ffffff;
+  transform: scale(1.1); /* Pequeño aumento al pasar el cursor */
+}
+
+/* Estilo adicional para efecto de sombra en los íconos */
+.social-icon {
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
+}
+
+
