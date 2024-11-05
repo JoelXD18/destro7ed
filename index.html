@@ -17,18 +17,7 @@
       height: 100%;
       overflow: hidden;
       color: #ffffff;
-    }
-
-    /* Fondo GIF */
-    .background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://motionbgs.com/media/1938/universe-singularity.960x540.mp4') center/cover no-repeat;
-      z-index: -2;
-      overflow: hidden;
+      background-color: #1a1a1a; /* Fondo oscuro */
     }
 
     /* Menú de navegación en la parte inferior */
@@ -125,15 +114,99 @@
       width: 150px;
       height: 150px;
       border-radius: 50%;
-      border: 4px solid #8a2be2;
-      background-size: cover;
-      background-position: center;
-      background-image: url('img/destro7ed.jpg'); /* Inserta aquí el enlace de tu imagen de perfil */
+      border: 4px solid transparent;
+      position: relative;
+      overflow: hidden;
+      animation: neonGlow 1.5s infinite alternate;
+    }
+
+    .profile-pic::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      right: -6px;
+      bottom: -6px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #8a2be2, #4b0082);
+      filter: blur(10px);
+      animation: gradientBorder 5s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes neonGlow {
+      0% {
+        box-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(138, 43, 226, 1);
+      }
+    }
+
+    /* Estilos para las tarjetas */
+    .card {
+      background-color: rgba(30, 30, 30, 0.8);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px;
+      width: 250px;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      border-radius: 10px;
+      background: linear-gradient(45deg, #8a2be2, #4b0082);
+      filter: blur(10px);
+      animation: gradientBorder 5s linear infinite;
+      z-index: -1;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 10px 0;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .card button {
+      background-color: #8a2be2;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .card button:hover {
+      background-color: #4b0082;
     }
   </style>
 </head>
 <body>
-  <!-- Fondo GIF -->
+  <!-- Fondo oscuro -->
   <div class="background"></div>
 
   <!-- Menú de navegación -->
@@ -145,7 +218,27 @@
 
   <!-- Secciones -->
   <div id="home" class="section active">Bienvenido a la página de Inicio</div>
-  <div id="archivo" class="section">Aquí encontrarás tus archivos</div>
+  <div id="archivo" class="section">
+    <h2>Mis Archivos</h2>
+    <div class="card">
+      <img src="https://via.placeholder.com/250" alt="Imagen de archivo 1">
+      <h3>Archivo 1</h3>
+      <p>Descripción breve del archivo 1.</p>
+      <button onclick="alert('Botón del Archivo 1 clicado!')">Ver Más</button>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/250" alt="Imagen de archivo 2">
+      <h3>Archivo 2</h3>
+      <p>Descripción breve del archivo 2.</p>
+      <button onclick="alert('Botón del Archivo 2 clicado!')">Ver Más</button>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/250" alt="Imagen de archivo 3">
+      <h3>Archivo 3</h3>
+      <p>Descripción breve del archivo 3.</p>
+      <button onclick="alert('Botón del Archivo 3 clicado!')">Ver Más</button>
+    </div>
+  </div>
   <div id="contacto" class="section">
     <p>Ponte en contacto con nosotros en nuestras redes sociales:</p>
     <!-- Foto de perfil -->
@@ -153,7 +246,7 @@
     <!-- Redes sociales -->
     <div class="social">
       <a href="https://instagram.com/destro7ed" target="_blank">Instagram</a>
-      <a href="https://t.me/destro7ed" target="_blank">Telegram</a>
+      <a href="https://t.me/joelxd18" target="_blank">Telegram</a>
       <a href="https://tiktok.com/@destro7ed" target="_blank">TikTok</a>
     </div>
   </div>
