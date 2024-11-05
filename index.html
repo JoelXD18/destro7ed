@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plantilla con Menú y Fondo de Agujero Negro</title>
+  <title>Perfil y Redes Sociales</title>
   <style>
     /* Estilos básicos */
     * {
@@ -28,33 +28,9 @@
       width: 100%;
       height: 100%;
       background: radial-gradient(circle at center, rgba(0, 0, 0, 0.7), transparent),
-                  url('https://youtu.be/mNcM7Sl0_CY?si=qdKaopMj-yiv42rA') center/cover no-repeat;
+                  url('https://example.com/black-hole.jpg') center/cover no-repeat;
       z-index: -2;
       overflow: hidden;
-    }
-
-    /* Animación del agujero negro */
-    .background::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(30, 0, 60, 0.8), rgba(0, 0, 0, 0.8) 50%);
-      border-radius: 50%;
-      transform: translate(-50%, -50%) rotate(0deg);
-      animation: rotateBlackHole 20s linear infinite;
-      z-index: -1;
-    }
-
-    @keyframes rotateBlackHole {
-      from {
-        transform: translate(-50%, -50%) rotate(0deg);
-      }
-      to {
-        transform: translate(-50%, -50%) rotate(360deg);
-      }
     }
 
     /* Fondo con efecto glow */
@@ -71,19 +47,10 @@
       z-index: -3;
     }
 
-    @keyframes pulsate {
-      from {
-        transform: translate(-50%, -50%) scale(1);
-      }
-      to {
-        transform: translate(-50%, -50%) scale(1.2);
-      }
-    }
-
-    /* Menú de navegación */
+    /* Menú de navegación en la parte inferior */
     .menu {
       position: fixed;
-      top: 20px;
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -96,6 +63,8 @@
       text-decoration: none;
       font-size: 1.2rem;
       padding: 10px 20px;
+      width: 120px; /* Tamaño uniforme */
+      text-align: center;
       border-radius: 8px;
       position: relative;
       overflow: hidden;
@@ -103,7 +72,7 @@
     }
 
     /* Borde animado gradient para el menú */
-    .menu a::before {
+    .menu a::before, .social a::before {
       content: "";
       position: absolute;
       top: -2px;
@@ -118,7 +87,7 @@
       z-index: -1;
     }
 
-    .menu a:hover {
+    .menu a:hover, .social a:hover {
       color: #ffffff;
       box-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
     }
@@ -143,6 +112,40 @@
     .section.active {
       display: block;
     }
+
+    /* Estilo para las redes sociales */
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .social a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      width: 120px; /* Tamaño uniforme */
+      text-align: center;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s;
+    }
+
+    /* Foto de perfil */
+    .profile-pic {
+      display: block;
+      margin: 0 auto 20px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #8a2be2;
+      background-size: cover;
+      background-position: center;
+      background-image: url('ENLACE_DE_TU_IMAGEN'); /* Inserta aquí el enlace de tu imagen de perfil */
+    }
   </style>
 </head>
 <body>
@@ -160,7 +163,17 @@
   <!-- Secciones -->
   <div id="home" class="section active">Bienvenido a la página de Inicio</div>
   <div id="archivo" class="section">Aquí encontrarás tus archivos</div>
-  <div id="contacto" class="section">Ponte en contacto con nosotros</div>
+  <div id="contacto" class="section">
+    <p>Ponte en contacto con nosotros en nuestras redes sociales:</p>
+    <!-- Foto de perfil -->
+    <div class="profile-pic"></div>
+    <!-- Redes sociales -->
+    <div class="social">
+      <a href="https://instagram.com/destro7ed" target="_blank">Instagram</a>
+      <a href="https://t.me/destro7ed" target="_blank">Telegram</a>
+      <a href="https://tiktok.com/@destro7ed" target="_blank">TikTok</a>
+    </div>
+  </div>
 
   <script>
     // Función para mostrar la sección seleccionada y ocultar las otras
