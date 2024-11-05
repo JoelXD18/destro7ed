@@ -15,36 +15,20 @@
 
     body, html {
       height: 100%;
-      background-color: #0b0b0b;
       overflow: hidden;
       color: #ffffff;
     }
 
-    /* Fondo de agujero negro */
+    /* Fondo GIF */
     .background {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at center, rgba(0, 0, 0, 0.7), transparent),
-                  url('https://www.icegif.com/wp-content/uploads/2023/08/icegif-799.gif') center/cover no-repeat;
+      background: url('https://motionbgs.com/media/1938/universe-singularity.960x540.mp4') center/cover no-repeat;
       z-index: -2;
       overflow: hidden;
-    }
-
-    /* Fondo con efecto glow */
-    .glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 120%;
-      height: 120%;
-      background: radial-gradient(circle, rgba(138, 43, 226, 0.7), transparent);
-      transform: translate(-50%, -50%);
-      filter: blur(50px);
-      animation: pulsate 5s ease-in-out infinite alternate;
-      z-index: -3;
     }
 
     /* Menú de navegación en la parte inferior */
@@ -149,9 +133,8 @@
   </style>
 </head>
 <body>
-  <!-- Fondo del agujero negro y glow -->
+  <!-- Fondo GIF -->
   <div class="background"></div>
-  <div class="glow"></div>
 
   <!-- Menú de navegación -->
   <nav class="menu">
@@ -164,7 +147,7 @@
   <div id="home" class="section active">Bienvenido a la página de Inicio</div>
   <div id="archivo" class="section">Aquí encontrarás tus archivos</div>
   <div id="contacto" class="section">
-    <br>
+    <p>Ponte en contacto con nosotros en nuestras redes sociales:</p>
     <!-- Foto de perfil -->
     <div class="profile-pic"></div>
     <!-- Redes sociales -->
