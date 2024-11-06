@@ -18,6 +18,17 @@
     <a href="contact.html" onclick="showSection('contacto')">Contact</a>
   </nav>
 
+  <h2>Contador de visitas: <span id="visitCounter">0</span></h2>
+
+<script>
+  fetch('https://api.countapi.xyz/update/mi-web.com/visitas/?amount=1')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('visitCounter').innerText = data.value;
+    });
+</script>
+
+
   <!-- Sección de Home -->
   <div id="home" class="section active">
     <div class="animated-name">DESTRO7ED</div>
