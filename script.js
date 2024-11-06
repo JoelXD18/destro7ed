@@ -22,7 +22,7 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const database = firebase.database(app);
 
-
+//subir mensajes a firebase
 function submitMessage() {
   const username = document.getElementById('username').value.trim();
   const message = document.getElementById('message').value.trim();
@@ -47,3 +47,20 @@ function submitMessage() {
       console.error("Error al enviar el mensaje:", error);
     });
 }
+
+//cargar mensajes
+function loadMessages() {
+  const messagesRef = firebase.database().ref('messages');
+  
+  messagesRef.on('child_added', (snapshot) => {
+    const messageData = snapshot.val();
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message');
+    messageElement.innerHTML = `<strong>${messageData.username}</strong>: <p>${messageData.message}</p>`;
+    document.getElementById('messages').appendChild(messageElement);
+  });
+}
+
+// Cargar mensajes al inicio
+loadMessages();
+
