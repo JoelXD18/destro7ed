@@ -22,6 +22,70 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const database = firebase.database(app);
 
+//prueba 2
+<script type="module">
+  // Configuración de Firebase
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+  import { getDatabase, ref, set, push, onChildAdded } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+  
+  const firebaseConfig = {
+    apiKey: "tu_apiKey",
+    authDomain: "tu_authDomain",
+    databaseURL: "tu_databaseURL",
+    projectId: "tu_projectId",
+    storageBucket: "tu_storageBucket",
+    messagingSenderId: "tu_messagingSenderId",
+    appId: "tu_appId"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  // Función para enviar un mensaje
+  function submitMessage() {
+    const username = document.getElementById('username').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!username || !message) {
+      alert("Por favor, ingresa un nombre de usuario y un mensaje.");
+      return;
+    }
+
+    const messageData = {
+      username: username,
+      message: message,
+      timestamp: Date.now()
+    };
+
+    // Guardar el mensaje en Firebase
+    push(ref(database, 'messages'), messageData)
+      .then(() => {
+        document.getElementById('message').value = ''; // Limpiar el campo de mensaje
+      })
+      .catch((error) => {
+        console.error("Error al enviar el mensaje:", error);
+      });
+  }
+
+  // Función para cargar los mensajes en tiempo real
+  function loadMessages() {
+    const messagesRef = ref(database, 'messages');
+    
+    // Escucha los cambios en la base de datos (nuevos mensajes)
+    onChildAdded(messagesRef, (snapshot) => {
+      const messageData = snapshot.val();
+      const messageElement = document.createElement('div');
+      messageElement.classList.add('message');
+      messageElement.innerHTML = `<strong>${messageData.username}</strong>: <p>${messageData.message}</p>`;
+      document.getElementById('messages').appendChild(messageElement);
+    });
+  }
+
+  // Cargar los mensajes al inicio
+  loadMessages();
+</script>
+// prueba 2
+
 //subir mensajes a firebase
 function submitMessage() {
   const username = document.getElementById('username').value.trim();
