@@ -21,3 +21,29 @@ const firebaseConfig = {
 // Inicializar Firebase
 const app = firebase.initializeApp(firebaseConfig);
 const database = firebase.database(app);
+
+
+function submitMessage() {
+  const username = document.getElementById('username').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  if (!username || !message) {
+    alert("Por favor, ingresa un nombre de usuario y un mensaje.");
+    return;
+  }
+
+  // Guardar el mensaje en Firebase
+  const messageData = {
+    username: username,
+    message: message,
+    timestamp: Date.now()
+  };
+
+  firebase.database().ref('messages').push(messageData)
+    .then(() => {
+      document.getElementById('message').value = ''; // Limpiar el campo de mensaje
+    })
+    .catch((error) => {
+      console.error("Error al enviar el mensaje:", error);
+    });
+}
