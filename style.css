@@ -289,13 +289,3 @@
 }
 
 
-  /* Banner para la sección de archivos */
-      .inicio7 {
-        background-image: url('img/standard2.gif');
-        background-size: cover;
-        background-position: center;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 20px;
-      }
-
