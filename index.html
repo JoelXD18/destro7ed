@@ -8,6 +8,22 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  
+    <h1>Pizarra de Mensajes</h1>
+
+    <label for="username">Nombre de usuario:</label>
+    <input type="text" id="username" placeholder="Ingresa tu nombre" required>
+    <br>
+
+    <label for="message">Mensaje:</label>
+    <textarea id="message" placeholder="Escribe un mensaje..." rows="4" required></textarea>
+    <br>
+
+    <button onclick="submitMessage()">Enviar Mensaje</button>
+
+    <div id="messages"></div>
+  
   <!-- Menú de navegación -->
   <nav class="menu">
     <a href="index.html" onclick="showSection('home')">Home</a>
