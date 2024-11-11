@@ -253,6 +253,16 @@
         margin-bottom: 20px;
       }
 
+/* Banner para la sección de archivos */
+      .standard2 {
+        background-image: url('img/standard2.gif');
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+
 /* Ajustes para diferentes dispositivos */
 @media (max-width: 768px) {
   body, html {
